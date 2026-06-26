@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Ministero del Modem: portale istituzionale per la gestione delle emergenze digitali."
+  />
+
+  <title>Ministero del Modem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="desktop">
+    <header class="top-strip">
+      <span>Repubblica Telematica Italiana</span>
+      <span>Connessione: probabilmente presente</span>
+    </header>
+
+    <main class="app-window" id="appWindow">
+      <div class="window-titlebar" id="dragHandle">
+        <div class="window-title">
+          <span class="window-icon">M</span>
+          Ministero del Modem - Protocollo Digitale v1.3
+        </div>
+
+        <div class="window-controls" aria-hidden="true">
+          <span>_</span>
+          <span>□</span>
+          <span>×</span>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <section class="hero">
+          <div class="crest" aria-hidden="true">
+            <span>MDM</span>
+            <small>2003</small>
+          </div>
+
+          <div>
+            <p class="eyebrow">DIPARTIMENTO PER LE INTERRUZIONI INGIUSTIFICATE</p>
+            <h1>Ministero del Modem</h1>
+            <p class="subtitle">
+              Portale telematico per la certificazione delle emergenze digitali,
+              delle pause caffè strategiche e dei computer emotivamente indisponibili.
+            </p>
+          </div>
+        </section>
+
+        <div class="marquee-shell">
+          <div class="marquee-text">
+            AVVISO AI CITTADINI: il servizio è attivo dalle 08:00 alle 08:07, salvo problemi tecnici, scioperi del modem o cali di motivazione.
+          </div>
+        </div>
+
+        <section class="notice-box">
+          <strong>Comunicazione di servizio n. 847/BIS</strong>
+          <p>
+            Per generare un certificato non è necessario essere davvero in difficoltà.
+            È sufficiente avere un motivo vagamente credibile e una connessione almeno spirituale.
+          </p>
+        </section>
+
+        <section class="form-section">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <h2>Presentazione della pratica</h2>
+              <p>Inserisci i dati necessari alla produzione del documento ufficiale.</p>
+            </div>
+          </div>
+
+          <form id="certificateForm">
+            <div class="form-grid">
+              <label>
+                Nome del cittadino
+                <input
+                  id="citizenName"
+                  type="text"
+                  maxlength="50"
+                  placeholder="Es. Giuseppe Tiano"
+                />
+              </label>
+
+              <label>
+                Ufficio competente
+                <select id="department">
+                  <option value="Ufficio Stanchezza Digitale">
+                    Ufficio Stanchezza Digitale
+                  </option>
+                  <option value="Reparto Pratiche Rimandate">
+                    Reparto Pratiche Rimandate
+                  </option>
+                  <option value="Direzione Generale del Caffè">
+                    Direzione Generale del Caffè
+                  </option>
+                  <option value="Sportello Problemi Non Richiesti">
+                    Sportello Problemi Non Richiesti
+                  </option>
+                </select>
+              </label>
+
+              <label>
+                Motivazione della richiesta
+                <select id="reason">
+                  <option value="computer_non_collabora">
+                    Il computer non collabora
+                  </option>
+                  <option value="modem_strano">
+                    Il modem ha fatto rumori sospetti
+                  </option>
+                  <option value="wifi_spirituale">
+                    Il Wi-Fi è connesso solo spiritualmente
+                  </option>
+                  <option value="voglia_smarrita">
+                    Smarrimento improvviso della voglia di fare
+                  </option>
+                  <option value="aggiornamento_infinito">
+                    Aggiornamento Windows senza fine apparente
+                  </option>
+                  <option value="stampante_offesa">
+                    La stampante ha deciso di non parlare
+                  </option>
+                  <option value="caffe_emergenza">
+                    Pausa caffè di emergenza non rinviabile
+                  </option>
+                  <option value="troppi_tab">
+                    Presenza di troppe schede aperte nel browser
+                  </option>
+                </select>
+              </label>
+
+              <label>
+                Livello di gravità
+                <select id="severity">
+                  <option value="basso">
+                    Livello 1 - Gestibile con un caffè
+                  </option>
+                  <option value="medio">
+                    Livello 2 - Serve una pausa tecnica
+                  </option>
+                  <option value="alto">
+                    Livello 3 - Situazione delicata
+                  </option>
+                  <option value="critico">
+                    Livello 4 - Chiamare qualcuno che ne capisce
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="retro-button primary-button">
+                GENERA DOCUMENTO UFFICIALE
+              </button>
+
+              <button type="button" id="randomButton" class="retro-button">
+                ESTRAI CASO CASUALE
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="progress-section" id="progressSection" hidden>
+          <div class="section-heading compact">
+            <span class="section-number">02</span>
+            <div>
+              <h2>Elaborazione pratica</h2>
+              <p id="progressText">Inizializzazione del protocollo...</p>
+            </div>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </section>
+
+        <section class="certificate-section" id="certificateSection" hidden>
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <h2>Documento generato</h2>
+              <p>Stampabile, condivisibile e quasi certamente non valido da nessuna parte.</p>
+            </div>
+          </div>
+
+          <article class="certificate" id="certificate">
+            <div class="certificate-topline">
+              <span>REPUBBLICA TELEMATICA ITALIANA</span>
+              <span id="certificateProtocol">MDM-2003-00000-X</span>
+            </div>
+
+            <div class="certificate-header">
+              <div class="certificate-stamp">MDM</div>
+
+              <div>
+                <h3>CERTIFICATO PROVVISORIO</h3>
+                <p>DI IMPEDIMENTO DIGITALE</p>
+              </div>
+            </div>
+
+            <div class="certificate-body">
+              <p>
+                Si attesta che il cittadino
+                <strong id="certificateName">Cittadino non identificato</strong>,
+                in data <strong id="certificateDate"></strong>,
+                ha presentato formale segnalazione presso
+                <strong id="certificateDepartment"></strong>.
+              </p>
+
+              <p>
+                Dall'istruttoria sommaria risulta che il soggetto non ha potuto
+                procedere regolarmente con le proprie attività a causa di:
+              </p>
+
+              <blockquote id="certificateReason">
+                computer emotivamente non disponibile.
+              </blockquote>
+
+              <p>
+                La pratica è classificata con livello di gravità:
+                <strong id="certificateSeverity"></strong>.
+              </p>
+
+              <p id="certificateClosing">
+                Il presente documento ha validità fino al ripristino della connessione,
+                della pazienza o della voglia di affrontare la giornata.
+              </p>
+            </div>
+
+            <div class="certificate-footer">
+              <div>
+                <span>Firma del responsabile</span>
+                <strong>Il Funzionario del Modem</strong>
+              </div>
+
+              <div>
+                <span>Timbro digitale</span>
+                <strong>Protocollo registrato</strong>
+              </div>
+            </div>
+          </article>
+
+          <div class="certificate-actions">
+            <button type="button" id="printButton" class="retro-button primary-button">
+              STAMPA CERTIFICATO
+            </button>
+
+            <button type="button" id="copyButton" class="retro-button">
+              COPIA TESTO
+            </button>
+
+            <button type="button" id="resetButton" class="retro-button danger-button">
+              NUOVA PRATICA
+            </button>
+          </div>
+
+          <p class="result-message" id="resultMessage"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="taskbar">
+      <span class="start-button">Start</span>
+      <span class="taskbar-item">Ministero del Modem</span>
+      <span class="clock" id="clock">00:00</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
